@@ -77,6 +77,7 @@ router.get('/:id', function(req, res,nest){
     });
 });
 
+
 // Configur router so all routers are prefixed with /api/v1
 app.use('/api/',router);
 
