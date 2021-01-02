@@ -98,6 +98,15 @@ router.post('/', function(req, res, next){
 
 /// API for Update Data in json format
 ///http://localhost:5000/api/1
+// /////
+// {
+//     "id": 1,
+//     "name": "Green Apple",
+//     "wholePrice": 19.99,
+//     "slicePrice": 4.99,
+//     "sliceCalories": 67,
+//     "imageUrl": "image/apple.jpg"
+// }
 router.put('/:id', function(req, res, next){
     pieRepo.getById(req.params.id, function(data){
         if(data){
@@ -108,6 +117,37 @@ router.put('/:id', function(req, res, next){
                     "statusText": "OK",
                     "message": "Pie '" + req.params.id + "' updated.",
                     "data": data
+                });
+            });
+        }
+        else{
+            res.status(404).json({
+                "status": 404,
+                "statusText": "Not Found",
+                "message": "The Pie '" + req.params.id + "' could not be found.",
+                "error": {
+                    "code": "Not_Found",
+                    "message": "The pie '" + req.params.id + "' could not be found."
+                }
+            });
+        }
+    }, function(err){
+        next(err);
+    });
+});
+
+/// API for Delete Data from pies.json file
+/// http://localhost:5000/api/5
+router.delete('/:id', function(req, res, next){
+    pieRepo.getById(req.params.id, function(data){
+        if(data){
+            // Attempt to delete the data
+            pieRepo.delete(req.params.id, function(data){
+                res.status(200).json({
+                    "status": 200,
+                    "statusText": "OK",
+                    "message": "The pie '" + req.params.id + "' is deleted.",
+                    "data": "Pie '" + req.params.id + "' deleted."
                 });
             });
         }

@@ -32,51 +32,19 @@
         "imageUrl": "image/bosenberry.jpg"
     },
     {
-        "id": 7,
-        "name": "aBosenberry",
-        "wholePrice": 19.99,
-        "slicePrice": 4.99,
-        "sliceCalories": 67,
-        "imageUrl": "image/bosenberry.jpg"
-    },
-    {
-        "id": 5,
-        "name": "aBosenberry",
-        "wholePrice": 19.99,
-        "slicePrice": 4.99,
-        "sliceCalories": 67,
-        "imageUrl": "image/bosenberry.jpg"
-    },
-    {
-        "id": 5,
-        "name": "aBosenberry",
-        "wholePrice": 19.99,
-        "slicePrice": 4.99,
-        "sliceCalories": 67,
-        "imageUrl": "image/bosenberry.jpg"
-    },
-    {
-        "id": 5,
-        "name": "aBosenberry",
-        "wholePrice": 19.99,
-        "slicePrice": 4.99,
-        "sliceCalories": 67,
-        "imageUrl": "image/bosenberry.jpg"
-    },
-    {
-        "id": 5,
-        "name": "aBosenberry",
-        "wholePrice": 19.99,
-        "slicePrice": 4.99,
-        "sliceCalories": 67,
-        "imageUrl": "image/bosenberry.jpg"
-    },
-    {
         "id": 6,
         "name": "Pineapple",
         "wholePrice": 20,
         "slicePrice": 4.99,
         "sliceCalories": 67,
         "imageUrl": "image/pineapple.jpg"
+    },
+    {
+        "id": 7,
+        "name": "aBosenberry",
+        "wholePrice": 19.99,
+        "slicePrice": 4.99,
+        "sliceCalories": 67,
+        "imageUrl": "image/bosenberry.jpg"
     }
 ]
