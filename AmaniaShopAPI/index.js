@@ -11,8 +11,10 @@ let router = express.Router();
 //     {"id": 2, "name": "Cherry"},
 //     {"id": 3, "name": "Peach"}
 // ];
-
 //let pies = pieRepo.get();
+
+// Configure midelware to support JSON data parsing in request object
+app.use(express.json());
 
 //Create GET to return a list of all pies
 router.get('/', function(reg, res, next){
@@ -77,6 +79,19 @@ router.get('/:id', function(req, res,nest){
     });
 });
 
+///http://localhost:5000/api
+router.post('/', function(req, res, next){
+    pieRepo.insert(req.body, function(data){
+        res.status(201).json({
+            "sratus": 201,
+            "statusText": "Created",
+            "message": "New Pie Added.",
+            "data": data
+        });
+    }, function(err){
+        next(err);
+    });
+});
 
 // Configur router so all routers are prefixed with /api/v1
 app.use('/api/',router);
