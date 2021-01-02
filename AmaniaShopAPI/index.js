@@ -16,7 +16,8 @@ let router = express.Router();
 // Configure midelware to support JSON data parsing in request object
 app.use(express.json());
 
-//Create GET to return a list of all pies
+//Create API GET to return a list of all pies
+///http://localhost:5000/api
 router.get('/', function(reg, res, next){
     // res.send("Welcome to Amania Shop 'Faizul', New Product is Apple");
     pieRepo.get(function(data){
@@ -52,7 +53,8 @@ router.get('/search', function(req, res, next){
     });
 });
 
-///Create GET/ID to return a single pie
+///Create API for GET/ID to return a single pie
+///http://localhost:5000/api/1
 router.get('/:id', function(req, res,nest){
     pieRepo.getById(req.params.id, function(data){
         if(data){
@@ -79,6 +81,7 @@ router.get('/:id', function(req, res,nest){
     });
 });
 
+/// API for Insert Data in json format
 ///http://localhost:5000/api
 router.post('/', function(req, res, next){
     pieRepo.insert(req.body, function(data){
@@ -88,6 +91,37 @@ router.post('/', function(req, res, next){
             "message": "New Pie Added.",
             "data": data
         });
+    }, function(err){
+        next(err);
+    });
+});
+
+/// API for Update Data in json format
+///http://localhost:5000/api/1
+router.put('/:id', function(req, res, next){
+    pieRepo.getById(req.params.id, function(data){
+        if(data){
+            //Attempt to update the data
+            pieRepo.update(req.body, req.params.id, function(data){
+                res.status(200).json({
+                    "status": 200,
+                    "statusText": "OK",
+                    "message": "Pie '" + req.params.id + "' updated.",
+                    "data": data
+                });
+            });
+        }
+        else{
+            res.status(404).json({
+                "status": 404,
+                "statusText": "Not Found",
+                "message": "The Pie '" + req.params.id + "' could not be found.",
+                "error": {
+                    "code": "Not_Found",
+                    "message": "The pie '" + req.params.id + "' could not be found."
+                }
+            });
+        }
     }, function(err){
         next(err);
     });
