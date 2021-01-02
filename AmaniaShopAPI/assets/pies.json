@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Green Apple",
+        "name": "Apple",
         "wholePrice": 19.99,
         "slicePrice": 4.99,
         "sliceCalories": 67,
@@ -32,15 +32,15 @@
         "imageUrl": "image/bosenberry.jpg"
     },
     {
-        "id": 6,
+        "id": 5,
         "name": "Pineapple",
-        "wholePrice": 20,
-        "slicePrice": 4.99,
+        "wholePrice": 19.99,
+        "slicePrice": 5,
         "sliceCalories": 67,
         "imageUrl": "image/pineapple.jpg"
     },
     {
-        "id": 7,
+        "id": 6,
         "name": "aBosenberry",
         "wholePrice": 19.99,
         "slicePrice": 4.99,
